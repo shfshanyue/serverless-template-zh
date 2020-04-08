@@ -1,0 +1,18 @@
+koa-app:
+  component: '@serverless/tencent-koa'
+  inputs:
+    region: ap-guangzhou
+    functionName: koa-function
+    runtime: Nodejs10.15
+    code: ./dist
+    functionConf:
+      timeout: 60
+      memorySize: 128
+      environment:
+        variables:
+          TOKEN: token
+    apigatewayConf:
+      protocols:
+        - https
+      environment: release
+
