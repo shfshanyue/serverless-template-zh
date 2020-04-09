@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
+import { initGA, logPageView } from '../utils/ga'
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    initGA()
+    logPageView()
+    Router.events.on('routeChangeComplete', logPageView)
+  }, [])
+
   return (
     <>
       <Helmet
