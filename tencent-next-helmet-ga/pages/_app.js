@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
+import Router from 'next/router'
 import { initGA, logPageView } from '../utils/ga'
 
 function MyApp({ Component, pageProps }) {
