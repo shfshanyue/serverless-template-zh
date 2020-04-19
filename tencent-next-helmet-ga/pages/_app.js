@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { initGA, logPageView } from '../utils/ga'
 
 function MyApp({ Component, pageProps }) {
