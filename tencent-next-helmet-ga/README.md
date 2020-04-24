@@ -1,6 +1,11 @@
 # Tencent Next for SEO
 
-本示例结合 `next` 及 `ga`/`sso` 快速部署到腾讯云函数计算中。
+本示例结合 `next` 及 `ga`/`sso` 及 `typescript` 快速部署到腾讯云函数计算中。
+
+可以直接点击以下链接查看效果：
+
++ now: <https://serverless-template-zh.now.sh/>
++ tencent: <https://service-r8i140rq-1257314149.gz.apigw.tencentcs.com/>
 
 ## 缺点
 
