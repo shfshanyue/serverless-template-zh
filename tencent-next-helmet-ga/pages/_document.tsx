@@ -1,9 +1,11 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetData } from 'react-helmet'
 
-export default class extends Document {
-  static async getInitialProps(...args) {
-    const documentProps = await super.getInitialProps(...args)
+export default class extends Document<{
+  helmet: HelmetData
+}> {
+  static async getInitialProps(args) {
+    const documentProps = await super.getInitialProps(args)
     // see https://github.com/nfl/react-helmet#server-usage for more information
     // 'head' was occupied by 'renderPage().head', we cannot use it
     return { ...documentProps, helmet: Helmet.renderStatic() }
