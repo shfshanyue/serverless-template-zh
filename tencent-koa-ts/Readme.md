@@ -4,13 +4,6 @@
 
 这里是一个结合 `ts` 及 `koa` 快速部署到腾讯云函数计算中的模板。
 
-## 缺点
-
-1. 部署麻烦，需要先编译 ts 至 js，并且仅上传生产环境需要的 node_modules (全部上传速度过慢)
-1. 在本地不支持 `log` 及 `metrics`，需要转至腾讯云控制台查看
-
-> 由于部署过程稍微复杂，可以考虑重写一个关于 ts 的 serverless component
-
 ## 快速使用
 
 使用本模板快速创建应用
@@ -51,15 +44,17 @@ $ npm run dev
 
 ``` yaml
 koa-app:
-  component: '@serverless/tencent-koa'
+  component: sls-component-http
   inputs:
     region: ap-guangzhou
     functionName: koa-function
     runtime: Nodejs10.15
-    code: ./dist
     functionConf:
       timeout: 60
       memorySize: 128
+      environment:
+        variables:
+          TOKEN: token
     apigatewayConf:
       protocols:
         - https
@@ -68,8 +63,6 @@ koa-app:
 
 ## 部署
 
-部署之前需要准备好生产环境所需的 `node_modules` 以及编译完成的 js 资源。
-
 ``` bash
 # 装包
 $ npm install typescript
@@ -77,9 +70,7 @@ $ npm install typescript
 # 编译成 js
 $ npm run build
 
-# 打包生产环境的包，并移至 dist 目录
-# predeploy: npm ci --production && rsync -avz node_modules dist/
-$ npm run predeploy
+$ npm ci --production
 
 # 部署到腾讯云
 $ sls

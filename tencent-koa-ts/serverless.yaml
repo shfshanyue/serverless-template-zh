@@ -1,10 +1,9 @@
 koa-app:
-  component: '@serverless/tencent-koa'
+  component: sls-component-http
   inputs:
     region: ap-guangzhou
     functionName: koa-function
     runtime: Nodejs10.15
-    code: ./dist
     functionConf:
       timeout: 60
       memorySize: 128

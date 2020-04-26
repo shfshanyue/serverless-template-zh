@@ -2,17 +2,18 @@
   "name": "tecent-koa-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
     "dev": "nodemon app.ts",
     "ncu": "ncu",
     "build": "tsc",
-    "predeploy": "npm ci --production && rsync -avz node_modules dist/"
+    "predeploy": "npm ci --production"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "tencent-serverless-http": "^1.1.0"
   },
   "devDependencies": {
     "@types/koa": "^2.11.3",
