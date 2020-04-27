@@ -6,6 +6,7 @@
 
 为了保证项目质量, 以下模板均使用了 `typescript`
 
++ [Tencent Simple Http](./tencent-simple-http): 快速部署一个简单的 http server 至腾讯云
 + [Tencent Koa Typescript](./tencent-koa-ts): 快速部署 koa 及 ts 至腾讯云
 + [Tencent Next Ga/Helmet](./tencent-next-helmet-ga): 快速部署 next 及 helmet/ga 至腾讯云
 

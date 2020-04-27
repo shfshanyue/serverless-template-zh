@@ -1,0 +1,17 @@
+simple-http:
+  component: sls-component-http
+  inputs:
+    region: ap-guangzhou
+    functionName: simple-http
+    runtime: Nodejs10.15
+    functionConf:
+      timeout: 60
+      memorySize: 128
+      environment:
+        variables:
+          TOKEN: token
+    apigatewayConf:
+      protocols:
+        - https
+      environment: release
+
