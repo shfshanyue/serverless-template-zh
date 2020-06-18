@@ -2,16 +2,17 @@
 
 本示例结合 `next` 及 `ga`/`sso` 及 `typescript` 快速部署到腾讯云函数计算中。
 
-可以直接点击以下链接查看效果：
+本示例部署到`now.sh` 及腾讯云的 `serverless framework`，可以直接点击以下链接查看效果：
 
-+ now: <https://serverless-template-zh.now.sh/>
-+ tencent: <https://service-r8i140rq-1257314149.gz.apigw.tencentcs.com/>
++ `now.sh`: <https://serverless-template-zh.now.sh/>
++ `tencent`: <https://service-r8i140rq-1257314149.gz.apigw.tencentcs.com/>
 
-## 缺点
+## 注意事项
 
-1. 部署过慢，node_modules 过大导致
-1. 对于 SSR 项目，所有的静态资源相关的依赖可视为 devDep，对于这类库可以不上传，目前是全部上传
-1. 在本地不支持 `log` 及 `metrics`，需要转至腾讯云控制台查看
+1. 腾讯云的 `serverless framework` 目前有 200M 体积限制
+1. 对于 SSR 项目，所有的静态资源相关的依赖可视为 devDep，对于这类库可以不上传
+
+> 另外，serverless framework 将可以自动做 COS 及 CDN 优化，期待功能更新
 
 ## 快速使用
 
@@ -48,7 +49,7 @@ $ npm run dev
 
 ### serverless component
 
-`serverless component` 可以认为是把 faas 及 baas 资源集合的进一步抽象，该项目采用了 `@serverless/tencent-next`
+`serverless component` 可以认为是把 faas 及 baas 资源集合的进一步抽象并做编排，该项目采用了 `@serverless/tencent-next`
 
 ``` yaml
 next-app:
@@ -103,4 +104,4 @@ $ sls
 
 此时网站部署在了 `https://service-r8i140rq-1257314149.gz.apigw.tencentcs.com/release/`，可通过访问连接直接查看效果
 
-从日志可以看出，部署到腾讯云需要使用 4 分钟，而且仅是一个 `hello, world`，如果对于部署速度有所追求的话，可以使用 `now`，仅需要 3s 就可以部署成功，我也坚信各大厂商的 serverless 对 next.js 的部署可以做到相同数量级的部署速度。`now` 以及 `next` 均处于一家公司旗下，对于 `next` 的部署有很大程度的优化
+从日志可以看出，部署到腾讯云需要使用 4 分钟，而且仅是一个 `hello, world`，如果对于部署速度有所追求的话，可以使用 `now`，仅需要 3s 就可以部署成功。`now` 以及 `next` 均处于一家公司旗下，对于 `next` 的部署有很大程度的优化

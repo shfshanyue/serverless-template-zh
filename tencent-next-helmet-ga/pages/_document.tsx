@@ -4,7 +4,7 @@ import { Helmet, HelmetData } from 'react-helmet'
 export default class extends Document<{
   helmet: HelmetData
 }> {
-  static async getInitialProps(args) {
+  static async getInitialProps(args: any) {
     const documentProps = await super.getInitialProps(args)
     // see https://github.com/nfl/react-helmet#server-usage for more information
     // 'head' was occupied by 'renderPage().head', we cannot use it
@@ -25,7 +25,7 @@ export default class extends Document<{
   get helmetHeadComponents() {
     return Object.keys(this.props.helmet)
       .filter(el => el !== 'htmlAttributes' && el !== 'bodyAttributes')
-      .map(el => this.props.helmet[el].toComponent())
+      .map(el => (this.props.helmet as any)[el].toComponent())
   }
 
   render() {
